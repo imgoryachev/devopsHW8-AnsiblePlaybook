@@ -28,3 +28,18 @@
       shell:
         chdir: /home/devops/boxfuse
         cmd: mvn package
+
+- name: Deploy to prod
+  hosts: prod
+  become: yes
+
+  tasks:
+    - name: Ensure tomcat9 is present
+      apt:
+        name: tomcat9
+        state: present
+      
+    - name: Ensure tomcat9 is running
+      service:
+        name: tomcat9.service
+        state: started
