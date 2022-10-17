@@ -22,4 +22,9 @@
     - name: Clone repository
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /home/devops/boxfuse      
+        dest: /home/devops/boxfuse
+
+    - name: Build .war
+      shell:
+        chdir: /home/devops/boxfuse
+        cmd: mvn package
