@@ -1,8 +1,14 @@
 ---
 - name: Building application
-  hosts: Builders
+  hosts: builders
   tasks:
-    - name: Ensure fit is present
+    - name: Ensure git is present
       apt:
         name: git
         state: present
+    
+    - name: Ensure maven is present
+      apt:
+        name: maven
+        state: present
+        
