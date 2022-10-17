@@ -2,7 +2,7 @@
 - name: Building application
   hosts: builders
   become: yes
-  
+
   tasks:
     - name: Ensure git is present
       apt:
@@ -14,7 +14,7 @@
         name: maven
         state: present
 
-    -name: Ensure default-jre is present
+    - name: Ensure default-jre is present
       apt:
         name: default-jre
         state: present
