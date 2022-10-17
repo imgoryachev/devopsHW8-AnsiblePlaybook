@@ -33,6 +33,7 @@
       fetch:
         src: /home/devops/boxfuse/target/hello-1.0.war
         dest: /tmp/hello-1.0.war
+        flat: yes
 
 - name: Deploy to prod
   hosts: prod
