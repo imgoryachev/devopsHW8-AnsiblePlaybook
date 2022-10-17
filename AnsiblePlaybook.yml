@@ -1,1 +1,8 @@
 ---
+- name: Building application
+  hosts: Builders
+  tasks:
+    - name: Ensure fit is present
+      apt:
+        name: git
+        state: present
