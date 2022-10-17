@@ -29,6 +29,11 @@
         chdir: /home/devops/boxfuse
         cmd: mvn package
 
+    - name: copy .war to main machine
+      fetch:
+        src: /home/devops/boxfuse/target/hello-1.0.war
+        dest: /tmp/hello-1.0.war
+
 - name: Deploy to prod
   hosts: prod
   become: yes
@@ -43,3 +48,8 @@
       service:
         name: tomcat9.service
         state: started
+      
+    - name: Copy .war to prod machines
+      copy:
+        src: /tmp/hello-1.0.war
+        dest: /var/lib/tomcat9/webapps/
